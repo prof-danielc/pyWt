@@ -1,0 +1,68 @@
+Possible formats for WBuilder
+
+Format 1
+XML option (looks ugly, imo)
+==========================================
+
+<WContainerWidget name="main" id="main">
+<WText text="Your name, please ? "/>
+<WLineEdit id="dudename"/>
+<WPushButton text="Greet me." id="greetingbutton"/>
+<WBreak/>
+<WText id="greeting"/>
+</WContainerWidget>
+
+Format 2 (json)
+===========================================================
+{
+    "widget" : "WContainerWidget",
+    "builder_id" : "main",
+    "id" : "main",
+    "children" :
+    [
+        {
+            "widget" : "WText",
+            "text" : "Your name, please ? "
+        },
+        {
+            "widget" : "WLineEdit",
+            "id" : "dudename"
+        },
+        {
+            "widget" : "WPushButton",
+            "id" : "greetingbutton",
+            "text" : "Greet me."
+        },
+        {
+            "widget" : "WBreak"
+        },
+        {
+            "widget" : "WText",
+            "id" : "greeting"
+        }
+    ]
+}
+===========================================================
+
+
+Format 3 (json in a different way)
+===========================================================
+{
+    "WContainerWidget" :
+    {
+        "builder_id" : "main",
+        "id" : "main",
+        "children" :
+        [
+            "WLineEdit" : { "id" : "dudename" },
+            "WPushButton" :
+            {
+                "id" : "greetingbutton",
+                "text" : "Greet me."
+            }
+            "WBreak" : {}
+            "WText" : { "id" : "greeting" }
+        ]
+    }
+}
+===========================================================

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app>
+
+<web-app>
+    <!-- Sets up Wt's context listener, this initializes servlet API -->
+    <listener>
+        <listener-class>eu.webtoolkit.jwt.ServletInit</listener-class>
+    </listener>
+
+    <!-- This applies only to servlet 3.0 -->
+    <!-- Set this to COOKIES if you want a session per user window, or URL per user tab -->
+    <session-config>
+        <tracking-mode>URL</tracking-mode>
+    </session-config>
+    
+    <error-page>
+  <error-code>403</error-code>
+  <location>/static/error-pages/403.html</location>
+</error-page>
+    
+    <error-page>
+  <error-code>404</error-code>
+  <location>/static/error-pages/404.html</location>
+</error-page>
+
+<error-page>
+  <error-code>500</error-code>
+  <location>/static/error-pages/404.html</location>
+</error-page>
+
+<error-page>
+  <exception-type>java.lang.throwable</exception-type>
+  <location>/static/error-pages/exception.html</location>
+</error-page>
+
+    <!-- Wt options. More can be found in eu.webtoolkit.jwt.Configuration . -->
+    <wt-app>
+        <progressive-bootstrap>true</progressive-bootstrap>
+        <favicon>/static/images/testheart.png</favicon>
+        <properties>
+            <property name="resourcesURL">/static/wt-resources/</property>
+        </properties>
+    </wt-app>
+
+
+    <!-- Sets up the default servlet for static content. This takes 2 code lines in "runserver.py" but is left as an option and example. -->
+    <!--
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/static/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>dirAllowed</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </servlet>
+    -->
+</web-app>
